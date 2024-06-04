@@ -29,6 +29,8 @@ class CommentsController{
             id_post: id
         }).returning('*')
 
+        await knex('posts').where({id}).increment('comments', 1)
+
         const commentCurrent = comment.map(({updated_at, ...rest})=>rest)
 
         return response.json({
