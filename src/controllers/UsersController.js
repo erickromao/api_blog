@@ -66,7 +66,7 @@ class UsersController {
             throw new AppError('Senha incorreta.')
         }
 
-        const token = jwt.sign({id: user.id}, KEY, {expiresIn:"3m"})
+        const token = jwt.sign({id: user.id}, KEY, {expiresIn:"10m"})
 
         return response.json({
             message:`Login feito com sucesso! Bem-vindo ${user.name}!`,
